@@ -13,25 +13,7 @@ bool checkPhone(string numberPhone)
     }
     return true;
 }
-// void covertTime(string timeCall, int rs[])
-// {
-//     rs[0] = atoi(timeCall[0]);
-//     rs[1] = atoi(timeCall[3]);
-//     rs[2] = atoi(timeCall[6]);
-// }
-// int totalTimeCall(int from_time, inr end_time)
-// {
-//     int fromTime[3];
-//     covertTime(from_time, fromTime);
-//     // printf ("%d %d %d\n",fromTime[0],fromTime[1],fromTime[2]);
-//     int endTime[3];
-//     covertTime(end_time, endTime);
-//     // printf ("%d %d %d\n",endTime[0],endTime[1],endTime[2]);
-//     // printf ("from: %d %d %d\n",fromTime[0],fromTime[1],fromTime[2]);
-//     // printf ("end : %d %d %d\n",endTime[0],endTime[1],endTime[2]);
-//     int total += 3600 * (-fromTime[0] + endTime[0]) + 60 * (-fromTime[1] + endTime[1]) + (-fromTime[2] + endTime[2]);
-//     return total;
-// }
+
 int countTime(string ftime, string etime)
 {
     int startTime = 3600 * ((ftime[0] - '0') * 10 + ftime[1] - '0') + 60 * ((ftime[3] - '0') * 10 + ftime[4] - '0') + ((ftime[6] - '0') * 10 + ftime[7] - '0');
@@ -45,14 +27,12 @@ int main()
     string from_number, to_number, date, from_time, end_time;
     while (1)
     {
-        // scanf("%s", call);
         cin >> call;
         if (call == "#")
         {
             break;
         }
         totalCall++;
-        // scanf("%s %s %s %s %s", from_number, to_number, date, from_time, end_time);
         cin >> from_number >> to_number >> date >> from_time >> end_time;
         if (!checkPhone(from_number) || !checkPhone(to_number))
         {
@@ -60,7 +40,6 @@ int main()
         }
         numberCall[from_number]++;
         timeCall[from_number] += countTime(from_time, end_time);
-        // cout << from_number << to_number << endl;
     }
     do
     {
@@ -93,5 +72,5 @@ int main()
         {
             break;
         }
-    } while (call != "#");
+    } while (1);
 }
